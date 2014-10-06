@@ -23,9 +23,9 @@ class Minit {
 		add_filter( 'print_scripts_array', array( $this, 'init_minit_js' ) );
 		add_filter( 'print_styles_array', array( $this, 'init_minit_css' ) );
 
-		// Print external scripts asynchronously in the footer
-		add_action( 'wp_print_footer_scripts', array( $this, 'async_init' ), 5 );
-		add_action( 'wp_print_footer_scripts', array( $this, 'async_print' ), 20 );
+		// Print external scripts asynchronously in the header
+		add_action( 'wp_print_header_scripts', array( $this, 'async_init' ), 5 );
+		add_action( 'wp_print_header_scripts', array( $this, 'async_print' ), 20 );
 
 	}
 
