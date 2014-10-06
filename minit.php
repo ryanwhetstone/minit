@@ -24,8 +24,8 @@ class Minit {
 		add_filter( 'print_styles_array', array( $this, 'init_minit_css' ) );
 
 		// Print external scripts asynchronously in the header
-		add_action( 'wp_print_header_scripts', array( $this, 'async_init' ), 5 );
-		add_action( 'wp_print_header_scripts', array( $this, 'async_print' ), 20 );
+		add_action( 'wp_print_footer_scripts', array( $this, 'async_init' ), 5 );
+		add_action( 'wp_print_footer_scripts', array( $this, 'async_print' ), 20 );
 
 	}
 
@@ -65,7 +65,7 @@ class Minit {
 			return $todo;
 
 		// Allow files to be excluded from Minit
-		$minit_exclude = (array) apply_filters( 'minit-exclude-' . $extension, array() );
+		$minit_exclude = (array) apply_filters( 'minit-exclude-' . $extension, array("jquery") );
 
 		// Exluce all minit items by default
 		$minit_exclude = array_merge( $minit_exclude, $this->get_done() );
